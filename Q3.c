@@ -39,7 +39,7 @@ int main(){
 
     arr[n-1] = '\0';//maam taught us this in class to end with null;
 
-    for(int k = 0;k < n-1;k++){
+    for(int k = 0;k < n-1;k++){//as i have to print n-1 elements
         printf("%d\t",arr[k]);// Print the updated array with (n-1) elements, space-separated
     }
 
