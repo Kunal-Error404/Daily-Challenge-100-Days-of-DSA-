@@ -19,17 +19,17 @@ Output: 23
 Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.*/
 int maxSubArray(int* nums, int numsSize) {
     int max_sum = nums[0];
+    int current_sum = 0;
 
     for (int i = 0; i < numsSize; i++) {
-        for (int j = i; j < numsSize; j++) {
-            int current_subarray_sum = 0;
-            for (int k = i; k <= j; k++) {
-                current_subarray_sum += nums[k];
-            }
+        current_sum += nums[i];
 
-            if (current_subarray_sum > max_sum) {
-                max_sum = current_subarray_sum;
-            }
+        if (current_sum > max_sum) {
+            max_sum = current_sum;
+        }
+
+        if (current_sum < 0) {
+            current_sum = 0;
         }
     }
 
