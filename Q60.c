@@ -49,6 +49,10 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
     l2 = rev(l2);
     struct ListNode* temp1 = l1;
     struct ListNode* temp2 = l2;
+    struct ListNode* dummy = (struct ListNode*)malloc(sizeof(struct ListNode));
+    dummy->val = 0;
+    dummy->next = NULL;
+    struct ListNode* cur = dummy;
     int carry = 0;
 
     while(temp1 != NULL || temp2 != NULL || carry){
@@ -56,13 +60,12 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
         if(temp1 != NULL){ sum += temp1->val; temp1 = temp1->next; }
         if(temp2 != NULL){ sum += temp2->val; temp2 = temp2->next; }
         carry = sum / 10;
-        if(temp1 != NULL) temp1->val = sum % 10;
-        else{
-            struct ListNode* node = (struct ListNode*)malloc(sizeof(struct ListNode));
-            node->val = sum % 10;
-            node->next = NULL;
-        }
+        struct ListNode* node = (struct ListNode*)malloc(sizeof(struct ListNode));
+        node->val = sum % 10;
+        node->next = NULL;
+        cur->next = node;
+        cur = cur->next;
     }
 
-    return rev(l1);
+    return rev(dummy->next);
 }
