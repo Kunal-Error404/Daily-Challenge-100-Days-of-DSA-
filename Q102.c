@@ -1,4 +1,4 @@
-Problem Statement:
+/*Problem Statement:
 Print the nodes visible when the binary tree is viewed from the right side.
 
 Input Format:
@@ -17,7 +17,7 @@ Output:
 1 3 6
 
 Explanation:
-At each level, the rightmost node is visible from the right view.
+At each level, the rightmost node is visible from the right view.*/
 #include <stdio.h>
 
 int main() {
