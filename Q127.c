@@ -31,5 +31,7 @@ int main() {
             }
     for (int i = 0; i < n; i++)
         printf("%d%s", arr[i], i < n - 1 ? " " : "\n");
-    return 0;
+  
+        return 0;
+
 }
